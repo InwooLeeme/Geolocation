@@ -10,11 +10,17 @@ const getJson = () => {
         method : 'GET',
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => showInfoAboutLocation(data))
     .catch(error => console.log(error));
 }
 
-
+const showInfoAboutLocation = (data) => {
+    alert('Catch the Request!');
+    const {city, country} = data;
+    showText1.innerHTML = `My Country : ${country}`;
+    showText2.innerHTML = `My City : ${city}`;
+    
+}
 
 const init = () => {
     getInfoBtn.addEventListener('click',getJson);
